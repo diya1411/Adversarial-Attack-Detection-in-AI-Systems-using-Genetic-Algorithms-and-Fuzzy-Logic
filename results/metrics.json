@@ -1,5 +1,6 @@
 {
   "config": {
+    "data_seed": 0,
     "n_seeds": 10,
     "ga": {
       "pop_size": 60,
@@ -794,5 +795,5 @@
     }
   ],
   "detector_reload_consistent": true,
-  "runtime_seconds": 7.8325560092926025
+  "runtime_seconds": 8.200109004974365
 }

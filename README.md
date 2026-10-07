@@ -21,7 +21,8 @@ flowchart TD
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python run_experiment.py          # full protocol: 10 seeds per optimiser, ~10 s
-.venv/bin/python -m pytest -q               # 76 tests
+.venv/bin/python -m pytest -q               # 84 tests
+.venv/bin/streamlit run app.py              # interactive demo at http://localhost:8501
 ```
 
 Options: `--seeds N`, `--out DIR`, `--data-seed N` (classifier, attack sampling and split), `--bootstrap N`, `--no-figures`.
@@ -34,6 +35,14 @@ Outputs in `results/`:
 | `metrics.json` | Every number in the report, including per-seed metrics |
 | `figures/fig2…fig8*.png` | Figures 2–8 of the paper |
 | `detector.npz` | The trained detector (classifier, normaliser, tuned FIS) |
+
+## Interactive demo
+
+`streamlit run app.py` opens a local web app that runs the real code:
+
+- **Live demo:** pick a test digit, attack it with FGSM at ε = 1/16 to 4/16, and see the classifier's answer, the four descriptors, the fuzzy detector's triage and the rules behind it. The confidence-only baseline's verdict is shown alongside.
+- **Fuzzy playground:** set C, U, P and F with sliders and watch the membership degrees, rule firing and risk score change.
+- **Results:** the tables and figures of the saved run, plus a button that reruns the whole experiment with any data seed. New runs go to `ui_runs/` and never overwrite `results/`.
 
 ## Using the trained detector
 

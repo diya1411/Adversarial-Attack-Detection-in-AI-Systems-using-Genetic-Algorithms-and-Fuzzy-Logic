@@ -165,7 +165,7 @@ def run(cfg, out, figures=True, log=print):
     consistent = bool(np.allclose(reloaded.score(data.X[te]), test_scores[hyb_name]))
 
     results = {
-        "config": {"n_seeds": cfg.n_seeds, "ga": vars(cfg.ga), "pso": vars(cfg.pso),
+        "config": {"data_seed": cfg.data_seed, "n_seeds": cfg.n_seeds, "ga": vars(cfg.ga), "pso": vars(cfg.pso),
                    "hybrid_generations": cfg.hybrid_generations, "hybrid_iterations": cfg.hybrid_iterations,
                    "knn_k": cfg.knn_k, "noise_draws": cfg.noise_draws, "noise_sigma": cfg.noise_sigma,
                    "n_bootstrap": cfg.n_bootstrap},
